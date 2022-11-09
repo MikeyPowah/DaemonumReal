@@ -5,11 +5,13 @@ using UnityEngine;
 public class Espejo : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
+    [SerializeField] private InteractionPromptUI _interactionPromptUI;
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("FUNCIONA");
+        if (!_interactionPromptUI.IsDisplayed) _interactionPromptUI.Open();
+        else _interactionPromptUI.Close();
         return true;
     }
 }
