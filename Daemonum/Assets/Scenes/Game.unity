@@ -1167,7 +1167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.5702736, y: -0.02240609, z: 0.032238137, w: 0.82051617}
-  m_LocalPosition: {x: 8.97, y: 9.91, z: -0.36}
+  m_LocalPosition: {x: 8.97, y: 14.71, z: 6.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1439,6 +1439,7 @@ GameObject:
   - component: {fileID: 904042381}
   - component: {fileID: 904042380}
   - component: {fileID: 904042379}
+  - component: {fileID: 904042382}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1495,6 +1496,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904042382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904042378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d1e0524e9d03a4880579392ef7207a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 8253180705689178706, guid: 25fef89f1070a6d4c89fa265996d9366, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 904042382}
     - target: {fileID: 8253180705689178706, guid: 25fef89f1070a6d4c89fa265996d9366, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Exit
@@ -1918,7 +1931,6 @@ GameObject:
   - component: {fileID: 1226977864}
   - component: {fileID: 1226977863}
   - component: {fileID: 1226977867}
-  - component: {fileID: 1226977869}
   - component: {fileID: 1226977868}
   m_Layer: 5
   m_Name: UIMenu
@@ -2022,7 +2034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_YourFirstButton: {fileID: 1647900689}
-  _interactionPromptUI: {fileID: 0}
+  _interactionPromptUI: {fileID: 1226977868}
 --- !u!114 &1226977868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,20 +2050,6 @@ MonoBehaviour:
   _uiPanel: {fileID: 1226977861}
   _promptText: {fileID: 0}
   IsDisplayed: 0
---- !u!114 &1226977869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226977861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e1545260717804eb569bc8b8528eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: 
-  _interactionPromptUI: {fileID: 1226977868}
 --- !u!1 &1297306299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,6 +2803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1516600649}
   moveSpeed: 7
+  _interactionPromptUI: {fileID: 1226977868}
 --- !u!1 &1548507043
 GameObject:
   m_ObjectHideFlags: 0

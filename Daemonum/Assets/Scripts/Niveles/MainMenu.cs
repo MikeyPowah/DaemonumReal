@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
+        Debug.Log("Le has dado a exit");
         Application.Quit();
     }
 
