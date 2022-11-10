@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void GameScene()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Dialogo");
     }
 
     public void OptionsScene()
