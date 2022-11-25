@@ -28,7 +28,7 @@ public class Movimiento : MonoBehaviour
             moveInput.y = Input.GetAxisRaw("Vertical");
             moveInput.Normalize();
             
-            rigidbody.velocity = new Vector3(-moveInput.x * moveSpeed, rigidbody.velocity.y, -moveInput.y * moveSpeed);
+            rigidbody.velocity = new Vector3(moveInput.x * moveSpeed, rigidbody.velocity.y, moveInput.y * moveSpeed);
         }
         
 
