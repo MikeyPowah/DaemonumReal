@@ -1799,6 +1799,7 @@ GameObject:
   - component: {fileID: 2069378297}
   - component: {fileID: 2069378296}
   - component: {fileID: 2069378298}
+  - component: {fileID: 2069378299}
   m_Layer: 0
   m_Name: EspadaSprite
   m_TagString: Untagged
@@ -1907,9 +1908,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   espada: {fileID: 2069378294}
   target: {fileID: 1489857339}
-  timerIsRunning: 0
+  Attacking: 0
   Lorey: {fileID: 1508780622}
   timeBucle: 0.35
+--- !u!65 &2069378299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069378294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16212001, y: 0.64, z: 0.20000002}
+  m_Center: {x: 0.0030174754, y: 0, z: 0}
 --- !u!1 &2116719252
 GameObject:
   m_ObjectHideFlags: 0

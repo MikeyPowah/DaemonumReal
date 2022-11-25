@@ -12,7 +12,7 @@ public class Espadote : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
 
     [SerializeField] private Transform target;
-    [SerializeField] private bool timerIsRunning = false;
+    [SerializeField] private bool Attacking = false;
     [SerializeField] private GameObject Lorey;
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
@@ -25,7 +25,7 @@ public class Espadote : MonoBehaviour {
 
     private void Update()
     {
-        if(!timerIsRunning)
+        if(!Attacking)
         {
             Seguir();
         }
@@ -33,41 +33,30 @@ public class Espadote : MonoBehaviour {
         {
             Atacar();
         }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !timerIsRunning)
+            
+        if (Input.GetKey(KeyCode.UpArrow) && !Attacking)
         {
-            Mjonlir = animatorLorey.GetInteger("Posicion");
-            animator.SetBool("Ataque", true); timerIsRunning = true;
-            switch (Mjonlir)
-            {
-                case 0:
-                    vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z + 7);
-                    break;
-                case 1:
-                    vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z - 7);
-                    break;
-                case 2:
-                    vectorAtaque = new Vector3(transform.position.x + 7, transform.position.y, transform.position.z);
-                    break;
-                case 3:
-                    vectorAtaque = new Vector3(transform.position.x - 7, transform.position.y, transform.position.z);
-                    break;
-                default:
-                    vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
-                    break;
-            }
+            animator.SetBool("Ataque", true); Attacking = true;
+            Mjonlir = 0;
+            vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2);
         }
-        else
+        if (Input.GetKey(KeyCode.DownArrow) && !Attacking)
         {
-            if (timeBucle > 0)
-            {
-                timeBucle -= Time.deltaTime;
-            }
-            else
-            {
-                //timeBucle = 0.35f;
-                //animator.SetBool("Ataque", false);
-            }
+            animator.SetBool("Ataque", true); Attacking = true;
+            Mjonlir = 1;
+            vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);  
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && !Attacking)
+        {
+            animator.SetBool("Ataque", true); Attacking = true;
+            Mjonlir = 3;
+            vectorAtaque = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && !Attacking)
+        {
+            animator.SetBool("Ataque", true); Attacking = true;
+            Mjonlir = 2;
+            vectorAtaque = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
         }
     }
 
@@ -89,7 +78,7 @@ public class Espadote : MonoBehaviour {
                 else
                 {
                     animator.SetBool("Ataque", false);
-                    timerIsRunning = false;
+                    Attacking = false;
                 }
                 break;      
             case 1:
@@ -100,7 +89,7 @@ public class Espadote : MonoBehaviour {
                 else
                 {
                     animator.SetBool("Ataque", false);
-                    timerIsRunning = false;
+                    Attacking = false;
                 }
                 break;
             case 2:
@@ -111,7 +100,7 @@ public class Espadote : MonoBehaviour {
                 else
                 {
                     animator.SetBool("Ataque", false);
-                    timerIsRunning = false;
+                    Attacking = false;
                 }
                 break;
             case 3:
@@ -122,7 +111,7 @@ public class Espadote : MonoBehaviour {
                 else
                 {
                     animator.SetBool("Ataque", false);
-                    timerIsRunning = false;
+                    Attacking = false;
                 }
                 break;
             default:
@@ -133,7 +122,7 @@ public class Espadote : MonoBehaviour {
                 else
                 {
                     animator.SetBool("Ataque", false);
-                    timerIsRunning = false;
+                    Attacking = false;
                 }
                 break;
         }
