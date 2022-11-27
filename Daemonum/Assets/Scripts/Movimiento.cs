@@ -24,8 +24,8 @@ public class Movimiento : MonoBehaviour
             if (!_interactionPromptUI.IsDisplayed) _interactionPromptUI.Open();
             else _interactionPromptUI.Close();
         }else if (!_interactionPromptUI.IsDisplayed){
-            moveInput.x = Input.GetAxisRaw("Horizontal");
-            moveInput.y = Input.GetAxisRaw("Vertical");
+            moveInput.x = -Input.GetAxisRaw("Horizontal");
+            moveInput.y = -Input.GetAxisRaw("Vertical");
             moveInput.Normalize();
             
             rigidbody.velocity = new Vector3(moveInput.x * moveSpeed, rigidbody.velocity.y, moveInput.y * moveSpeed);
