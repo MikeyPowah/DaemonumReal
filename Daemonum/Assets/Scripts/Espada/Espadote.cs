@@ -17,6 +17,12 @@ public class Espadote : MonoBehaviour {
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
     private int Mjonlir;
+
+    //COMBATE
+    //[SerializeField] private int Damage;
+    //[SerializeField] private AttackArea _attackArea;
+    //[SerializeField] private bool Elemental;
+                    
     void Start()
     {
         animatorLorey = Lorey.GetComponent<Animator>();
@@ -126,5 +132,25 @@ public class Espadote : MonoBehaviour {
                 }
                 break;
         }
+
+        /*[SerializeField]
+        private float DamageAfterTime;
+
+        [SerializeField]
+        private float StrongDamageAfterTime;
+        */
+
+        //StartCoroutine("Hit", Elemental);
     }
+
+    /*private IEnumerator Hit(bool strong)
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log(_attackArea.Damagables.Count);
+        foreach(var attackingAreaDamageable in _attackArea.Damagables)
+        {
+            attackingAreaDamageable.Damage(Damage * (strong ? 2 : 1));
+        }
+    }*/
+
 }
