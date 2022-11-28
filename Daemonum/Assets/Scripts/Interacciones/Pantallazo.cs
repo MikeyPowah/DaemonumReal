@@ -3,27 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Pantallazo : MonoBehaviour
+public class StatsLorey : MonoBehaviour
 {
 
     [SerializeField] private GameObject  m_GotHitScreen;
+    [SerializeField] private GameObject  espada;
+    private float vida = 10;
 
-
-    public void gotHurt()
+    public void gotHurt(float dmg)
     {
         var color = m_GotHitScreen.GetComponent<Image>().color;
         color.a = 0.5f;
 
         m_GotHitScreen.GetComponent<Image>().color = color;
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        //gotHurt();
-        if(collider.gameObject.tag == "Enemigo")
-        {
-            gotHurt();
-        }
+        Debug.Log(dmg);
     }
 
     private void Update()
@@ -36,6 +29,11 @@ public class Pantallazo : MonoBehaviour
                 color.a -= 0.001f;
                 m_GotHitScreen.GetComponent<Image>().color = color;
             }
+        }
+        if(vida <= 0)
+        {
+            //canvas
+            
         }
     }
     

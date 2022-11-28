@@ -7,24 +7,46 @@ public class EnemyController : MonoBehaviour
 {
     public float distancia;
     public Transform playerObj;
-    public Transform enemy;
+    private Transform enemy;
     protected NavMeshAgent enemyMesh;
     
+    [SerializeField] float damage = 0;
     private bool timerIsRunning = false;
     private bool timerLoreyIsRunning = false;
     public float timeLoreyRemaining = 1;
-    [SerializeField] private GameObject espada;
-    [SerializeField] private GameObject lorey;
+    
     public float timeRemaining = 1;
-    [SerializeField] private NavMeshAgent enemigoMovimiento;
+    //[SerializeField] private NavMeshAgent enemyMesh;
 
+
+    private void OnTriggerStay(Collider collider)
+    {
+        if(collider.gameObject.tag == "Espada" && !timerIsRunning)
+        {
+            timerIsRunning = true;
+            Debug.Log("Hola");
+            enemyMesh.speed = 0;
+            AudioManager.instance.EnemigoDañadoSFX();
+        }
+        if(collider.gameObject.tag == "Lorey" && !timerLoreyIsRunning)
+        {
+            timerLoreyIsRunning = true;
+            Debug.Log("ATAQUE");
+            enemyMesh.speed = 0;
+            collider.gameObject.GetComponent<StatsLorey>().gotHurt(damage);
+            if(this.gameObject.tag == "Champi") AudioManager.instance.EnemigoAtaqueSFX();
+            else if(this.gameObject.tag == "Slime") AudioManager.instance.SlimeAtaqueSFX();
+            //LOREY DMG
+        }
+    }
+    /*
     private void OnTriggerStay(Collider col)
     {
         if (col == espada.GetComponent<Collider>() && !timerIsRunning && espada.GetComponent<Animator>().GetBool("Ataque"))
         {
             timerIsRunning = true;
             Debug.Log("Hola");
-            enemigoMovimiento.speed = 0;
+            enemyMesh.speed = 0;
             AudioManager.instance.EnemigoDañadoSFX();
             //ENEMY DMG
         }
@@ -32,12 +54,12 @@ public class EnemyController : MonoBehaviour
         {
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
-            enemigoMovimiento.speed = 0;
-            AudioManager.instance.SlimeAtaqueSFX();
+            enemyMesh.speed = 0;
+            AudioManager.instance.EnemigoAtaqueSFX();
             //LOREY DMG
         }
     }
-
+*/
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +87,7 @@ public class EnemyController : MonoBehaviour
             {
                 timerIsRunning = false;
                 timeRemaining = 1;
-                enemigoMovimiento.speed = 5;
+                enemyMesh.speed = 5;
             }
         }
 
@@ -80,7 +102,7 @@ public class EnemyController : MonoBehaviour
             {
                 timerLoreyIsRunning = false;
                 timeLoreyRemaining = 1;
-                enemigoMovimiento.speed = 5;
+                enemyMesh.speed = 5;
             }
         }
     }
