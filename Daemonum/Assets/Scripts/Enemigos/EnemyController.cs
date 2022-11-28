@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
             timerIsRunning = true;
             Debug.Log("Hola");
             enemigoMovimiento.speed = 0;
+            AudioManager.instance.EnemigoDañadoSFX();
             //ENEMY DMG
         }
         if(col == lorey.GetComponent<Collider>() && !timerLoreyIsRunning) 
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
             enemigoMovimiento.speed = 0;
+            AudioManager.instance.SlimeAtaqueSFX();
             //LOREY DMG
         }
     }

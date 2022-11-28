@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AudioManager : MonoBehaviour
+{
+    public static AudioManager instance;
+
+    [SerializeField] AudioSource sonidoSource;
+    [SerializeField] List<AudioClip> listaEspada = new List<AudioClip>();
+    [SerializeField] List<AudioClip> listaEnemigoDaño = new List<AudioClip>();
+    [SerializeField] List<AudioClip> listaEnemigoAtaque = new List<AudioClip>();
+    [SerializeField] List<AudioClip> listaSlimeAtaque = new List<AudioClip>();
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void EspadaSFX()
+    {
+        AudioClip clip = listaEspada[Random.Range(0,5)];
+
+        sonidoSource.PlayOneShot(clip, 0.20f);
+    }
+
+    public void EnemigoDañadoSFX()
+    {
+        AudioClip clip = listaEnemigoDaño[Random.Range(0,4)];
+
+        sonidoSource.PlayOneShot(clip, 0.50f);
+    }
+    public void EnemigoAtaqueSFX()
+    {
+        AudioClip clip = listaEnemigoAtaque[Random.Range(0,6)];
+
+        sonidoSource.PlayOneShot(clip, 0.50f);
+    }
+
+    public void SlimeAtaqueSFX()
+    {
+        AudioClip clip = listaSlimeAtaque[Random.Range(0,2)];
+
+        sonidoSource.PlayOneShot(clip, 0.50f);
+    }
+}

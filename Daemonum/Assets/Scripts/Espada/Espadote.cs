@@ -64,6 +64,24 @@ public class Espadote : MonoBehaviour {
             Mjonlir = 2;
             vectorAtaque = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
         }
+    
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            AudioManager.instance.EspadaSFX();
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            AudioManager.instance.EspadaSFX();
+        }
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            AudioManager.instance.EspadaSFX();
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            AudioManager.instance.EspadaSFX();
+        }
+        
     }
 
     private void Seguir()
