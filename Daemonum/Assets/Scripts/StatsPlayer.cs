@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StatsPlayer : MonoBehaviour
 {
-    public int maxLife, maxMana, currentLife, currentMana, attack, armor, coin;
+    public int maxLife, maxMana, currentLife, currentMana, attack, armor, coin, esence;
     public bool elemental;
     float timeRemaining = 1;
     bool timerIsRunning = true;
@@ -19,6 +19,8 @@ public class StatsPlayer : MonoBehaviour
     private Image Vida1, Vida2, Vida3, Vida4, Vida5, Vida6, Vida7, Vida8, Vida9, Vida10;
     [SerializeField]
     private Image Mana1, Mana2, Mana3, Mana4, Mana5, Mana6, Mana7, Mana8, Mana9, Mana10;
+
+    [SerializeField] private GameObject m_GotHitScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,13 +57,27 @@ public class StatsPlayer : MonoBehaviour
                 timerIsRunning = true;
             }
         }
+
+        if (m_GotHitScreen != null)
+        {
+            if (m_GotHitScreen.GetComponent<Image>().color.a > 0)
+            {
+                var color = m_GotHitScreen.GetComponent<Image>().color;
+                color.a -= 0.001f;
+                m_GotHitScreen.GetComponent<Image>().color = color;
+            }
+        }
+        if (currentLife <= 0)
+        {
+            Debug.Log("muelto");
+        }
     }
 
     
-
     public void UpdateMaxHealth(int health)
     {
         maxLife += health;
+        UpdateHealth(health);
 
         switch (maxLife)
         {
@@ -119,6 +135,7 @@ public class StatsPlayer : MonoBehaviour
     public void UpdateMaxMana(int mana)
     {
         maxMana += mana;
+        UpdateMana(mana);
 
         switch (maxMana)
         {
@@ -178,7 +195,7 @@ public class StatsPlayer : MonoBehaviour
         if (currentLife + health <= maxLife && 0 <= currentLife + health)
         {
             currentLife += health;
-
+            print("UpdateHealth " + health);
             switch (currentLife)
             {
                 case 0:
@@ -460,5 +477,15 @@ public class StatsPlayer : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void gotHurt(int dmg)
+    {
+        var color = m_GotHitScreen.GetComponent<Image>().color;
+        color.a = 0.9f;
+
+        m_GotHitScreen.GetComponent<Image>().color = color;
+        Debug.Log(dmg);
+        UpdateHealth(dmg);
     }
 }

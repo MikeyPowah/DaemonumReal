@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     private Transform enemy;
     protected NavMeshAgent enemyMesh;
     
-    [SerializeField] float damage = 0;
+    //[SerializeField] int damage = 0;
     private bool timerIsRunning = false;
     private bool timerLoreyIsRunning = false;
     public float timeLoreyRemaining = 1;
@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         if(collider.gameObject.tag == "Espada" && !timerIsRunning)
         {
             timerIsRunning = true;
-            Debug.Log("Hola");
+            //Debug.Log("Hola");
             enemyMesh.speed = 0;
             AudioManager.instance.EnemigoDañadoSFX();
         }
@@ -33,10 +33,12 @@ public class EnemyController : MonoBehaviour
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
             enemyMesh.speed = 0;
-            collider.gameObject.GetComponent<StatsLorey>().gotHurt(damage);
-            if(this.gameObject.tag == "Champi") AudioManager.instance.EnemigoAtaqueSFX();
+            if (this.gameObject.tag == "Champi") collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-1);
+            else if (this.gameObject.tag == "Slime") collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-2);
+            if (this.gameObject.tag == "Champi") AudioManager.instance.EnemigoAtaqueSFX();
             else if(this.gameObject.tag == "Slime") AudioManager.instance.SlimeAtaqueSFX();
             //LOREY DMG
+            //statsPlayer.UpdateHealth(-1);
         }
     }
     /*
