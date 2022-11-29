@@ -17,11 +17,6 @@ public class Espadote : MonoBehaviour {
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
     private int Mjonlir;
-
-    //COMBATE
-    //[SerializeField] private int Damage;
-    //[SerializeField] private AttackArea _attackArea;
-    //[SerializeField] private bool Elemental;
                     
     void Start()
     {
