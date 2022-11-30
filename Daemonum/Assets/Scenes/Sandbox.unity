@@ -721,6 +721,7 @@ MonoBehaviour:
   fuego: {fileID: 577664426}
   sonidoSource: {fileID: 2098674679}
   timeFuegoRemaining: 1
+  player: {fileID: 1489857334}
 --- !u!114 &602948199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1983281133900137756, guid: e134ff2845ae59046880a890005dbfa9, type: 3}
@@ -1465,7 +1466,7 @@ MonoBehaviour:
   distancia: 10
   playerObj: {fileID: 1489857339}
   damage: 5
-  hp: 10
+  health: 55
   timeLoreyRemaining: 1
   timeRemaining: 1
 --- !u!1001 &1292719966
@@ -2016,13 +2017,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 10
-  maxMana: 10
+  maxMana: 6
   currentLife: 0
   currentMana: 0
   attack: 10
-  armor: 10
   coin: 25
   esence: 100
+  elementalDamage: 1
   elemental: 0
   barraVida:
   - {fileID: 23600405}
@@ -2808,6 +2809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   espada: {fileID: 2069378294}
   player: {fileID: 1489857334}
+  statsPlayer: {fileID: 0}
   target: {fileID: 1489857339}
   Attacking: 0
   Lorey: {fileID: 1508780622}
@@ -3041,6 +3043,10 @@ PrefabInstance:
       propertyPath: espada
       value: 
       objectReference: {fileID: 2069378294}
+    - target: {fileID: 1483023951970247134, guid: bd9a9922be8599646b889eb63102e3f7, type: 3}
+      propertyPath: health
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1483023951970247134, guid: bd9a9922be8599646b889eb63102e3f7, type: 3}
       propertyPath: playerObj
       value: 

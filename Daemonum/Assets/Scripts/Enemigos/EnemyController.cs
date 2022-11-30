@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     protected NavMeshAgent enemyMesh;
     
     [SerializeField] int damage = 0;
-    [SerializeField] int hp = 10;
+    [SerializeField] float health = 10;
     private bool timerIsRunning = false;
     private bool timerLoreyIsRunning = false;
     public float timeLoreyRemaining = 1;
@@ -27,6 +27,22 @@ public class EnemyController : MonoBehaviour
             timerIsRunning = true;
             enemyMesh.speed = 0;
             AudioManager.instance.EnemigoDañadoSFX();
+            if (collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
+            {
+                gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
+                if (health <= 0)
+                {
+                    Debug.Log("Enemigo muelto");
+                }
+            }
+            else { 
+                gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
+                if (health <= 0)
+                {
+                    Debug.Log("Enemigo muelto");
+                }
+            }
+
         }
         if(collider.gameObject.tag == "Lorey" && !timerLoreyIsRunning)
         {
@@ -35,12 +51,12 @@ public class EnemyController : MonoBehaviour
             enemyMesh.speed = 0;
             if (this.gameObject.tag == "Champi")
             {
-                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(damage);
+                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
                 AudioManager.instance.EnemigoAtaqueSFX();
             } 
             else if (this.gameObject.tag == "Slime")
             {
-                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(damage);
+                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
                 AudioManager.instance.SlimeAtaqueSFX();
             }  
             //LOREY DMG
@@ -113,5 +129,11 @@ public class EnemyController : MonoBehaviour
                 enemyMesh.speed = 5;
             }
         }
+
+    }
+
+    public void gotHurt(float dmg)
+    {
+        health -= dmg;
     }
 }

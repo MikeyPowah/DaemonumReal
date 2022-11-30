@@ -11,17 +11,19 @@ public class Espadote : MonoBehaviour {
     private float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
     [SerializeField] private GameObject player;
+    public StatsPlayer statsPlayer;
     [SerializeField] private Transform target;
     [SerializeField] private bool Attacking = false;
     [SerializeField] private GameObject Lorey;
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
     private int Mjonlir;
-                    
+
     void Start()
     {
         animatorLorey = Lorey.GetComponent<Animator>();
         animator = GetComponent<Animator>();
+        statsPlayer = player.GetComponent<StatsPlayer>();
     }
 
     private void Update()

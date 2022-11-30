@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class StatsPlayer : MonoBehaviour
 {
-    public int maxLife, maxMana, currentLife, currentMana, attack, armor, coin, esence;
+    public int maxLife, maxMana, currentLife, currentMana, attack, coin, esence;
+    public float elementalDamage;
     public bool elemental;
     float timeRemaining = 1;
     bool timerIsRunning = true;
@@ -85,7 +86,7 @@ public class StatsPlayer : MonoBehaviour
     public void UpdateMaxHealth(int health)
     {
         maxLife += health;
-        UpdateHealth(health);
+        
         for(int i = 0; i < barraVida.Length; i++)
         {
             if(5 + i == maxLife)
@@ -97,12 +98,13 @@ public class StatsPlayer : MonoBehaviour
                 barraVida[i].enabled = false;
             }
         }
+        UpdateHealth(health);
     }
 
     public void UpdateMaxMana(int mana)
     {
         maxMana += mana;
-        UpdateMana(mana);
+        
         for(int i = 0; i < barraMana.Length; i++)
         {
             if(5 + i == maxMana)
@@ -114,6 +116,7 @@ public class StatsPlayer : MonoBehaviour
                 barraMana[i].enabled = false;
             }
         }
+        UpdateMana(mana);
     }
 
     public void UpdateHealth(int health)

@@ -10,10 +10,14 @@ public class Fuego : MonoBehaviour
     private bool fuegoBool = false;
     private bool timerFuegoIsRunning = false;
     public float timeFuegoRemaining = 1;
+    [SerializeField]
+    private GameObject player;
+    private StatsPlayer statsPlayer;
     // Start is called before the first frame update
     void Start()
     {
         fuegoA = fuego.GetComponent<Animator>();
+        statsPlayer = player.GetComponent<StatsPlayer>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class Fuego : MonoBehaviour
                 fuegoBool = false;
                 timerFuegoIsRunning = true;
                 sonidoSource.mute = true;
+                statsPlayer.elemental = false;
             }
             else
             {
@@ -40,6 +45,7 @@ public class Fuego : MonoBehaviour
                 fuegoBool = true;
                 timerFuegoIsRunning = true;
                 sonidoSource.mute = false;
+                statsPlayer.elemental = true;
             }
         } 
         
@@ -54,6 +60,15 @@ public class Fuego : MonoBehaviour
                 timerFuegoIsRunning = false;
                 timeFuegoRemaining = 1;
             }
+        }
+
+        if(statsPlayer.currentMana <= 0)
+        {
+            fuegoA.SetBool("Fuego", false);
+            fuegoBool = false;
+            timerFuegoIsRunning = true;
+            sonidoSource.mute = true;
+            statsPlayer.elemental = false;
         }
     }
 }
