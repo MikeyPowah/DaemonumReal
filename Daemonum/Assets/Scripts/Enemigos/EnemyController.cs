@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     private Transform enemy;
     protected NavMeshAgent enemyMesh;
     
+    [SerializeField] int coins = 0;
     [SerializeField] int damage = 0;
     [SerializeField] float health = 10;
     private bool timerIsRunning = false;
@@ -19,9 +20,10 @@ public class EnemyController : MonoBehaviour
     public float timeRemaining = 1;
     //[SerializeField] private NavMeshAgent enemyMesh;
 
-    private float timerMuerte = 0.4f;
+    private float timerMuerte = 1f;
     private bool muerte = false;
-
+    [SerializeField] private GameObject muerteGO;
+    private Animator muerteA;
 
     private void OnTriggerStay(Collider collider)
     {
@@ -35,7 +37,9 @@ public class EnemyController : MonoBehaviour
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
                 if (health <= 0)
                 {
+                    GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
                     AudioManager.instance.MuerteEnemigoSFX();
+                    muerteA.SetBool("Muerte", true);
                     Debug.Log("Enemigo muelto");
                     enemyMesh.speed = 0;
                     muerte = true;
@@ -45,7 +49,9 @@ public class EnemyController : MonoBehaviour
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
                 if (health <= 0)
                 {
+                    GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
                     AudioManager.instance.MuerteEnemigoSFX();
+                    muerteA.SetBool("Muerte", true);
                     Debug.Log("Enemigo muelto");
                     enemyMesh.speed = 0;
                     muerte = true;
@@ -104,6 +110,7 @@ public class EnemyController : MonoBehaviour
         playerObj = GameObject.Find("Player").transform;
         enemyMesh = GetComponent<NavMeshAgent>();
         enemy = GetComponent<Transform>();
+        muerteA = muerteGO.GetComponent<Animator>();
     }
 
     // Update is called once per frame
