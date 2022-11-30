@@ -11,6 +11,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] List<AudioClip> listaEnemigoDaño = new List<AudioClip>();
     [SerializeField] List<AudioClip> listaEnemigoAtaque = new List<AudioClip>();
     [SerializeField] List<AudioClip> listaSlimeAtaque = new List<AudioClip>();
+    [SerializeField] AudioClip treeBossAttack;
+    [SerializeField] AudioClip nextAudio;
+    [SerializeField] AudioClip comprar;
+    [SerializeField] AudioClip muerteEnemigo;
 
 
     void Awake()
@@ -67,5 +71,25 @@ public class AudioManager : MonoBehaviour
         AudioClip clip = listaSlimeAtaque[Random.Range(0,2)];
 
         sonidoSource.PlayOneShot(clip, 0.25f);
+    }
+
+    public void TreeBossAttackSFX()
+    {
+        sonidoSource.PlayOneShot(treeBossAttack, 0.20f);
+    }
+
+    public void NextDialogoSFX()
+    {
+        sonidoSource.PlayOneShot(nextAudio, 0.80f);
+    }
+
+    public void ComprarCosaSFX()
+    {
+        sonidoSource.PlayOneShot(comprar, 0.80f);
+    }
+
+    public void MuerteEnemigoSFX()
+    {
+        sonidoSource.PlayOneShot(muerteEnemigo, 0.85f);
     }
 }

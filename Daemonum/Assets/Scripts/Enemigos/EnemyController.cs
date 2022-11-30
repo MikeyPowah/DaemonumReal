@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     public float timeRemaining = 1;
     //[SerializeField] private NavMeshAgent enemyMesh;
 
+    private float timerMuerte = 0.4f;
+    private bool muerte = false;
+
 
     private void OnTriggerStay(Collider collider)
     {
@@ -32,19 +35,25 @@ public class EnemyController : MonoBehaviour
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
                 if (health <= 0)
                 {
+                    AudioManager.instance.MuerteEnemigoSFX();
                     Debug.Log("Enemigo muelto");
+                    enemyMesh.speed = 0;
+                    muerte = true;
                 }
             }
             else { 
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
                 if (health <= 0)
                 {
+                    AudioManager.instance.MuerteEnemigoSFX();
                     Debug.Log("Enemigo muelto");
+                    enemyMesh.speed = 0;
+                    muerte = true;
                 }
             }
 
         }
-        if(collider.gameObject.tag == "Lorey" && !timerLoreyIsRunning)
+        if(collider.gameObject.tag == "Lorey" && !timerLoreyIsRunning && !muerte)
         {
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
@@ -58,7 +67,12 @@ public class EnemyController : MonoBehaviour
             {
                 collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
                 AudioManager.instance.SlimeAtaqueSFX();
-            }  
+            } 
+            else if (this.gameObject.tag == "TreeBoss")
+            {
+                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
+                AudioManager.instance.TreeBossAttackSFX();
+            }
             //LOREY DMG
             //statsPlayer.UpdateHealth(-1);
         }
@@ -127,6 +141,19 @@ public class EnemyController : MonoBehaviour
                 timerLoreyIsRunning = false;
                 timeLoreyRemaining = 1;
                 enemyMesh.speed = 5;
+            }
+        }
+
+        if (muerte)
+        {
+            if (timerMuerte > 0)
+            {
+                timerMuerte -= Time.deltaTime;
+                
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
 

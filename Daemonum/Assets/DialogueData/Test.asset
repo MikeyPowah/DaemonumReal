@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   dialogue:
-  - "Parece que la he liado con el hechizo de categor\xEDa 37\nNo creo que haya pasado
-    nada grave."
-  - "De todas formas ir\xE9 a mirar fuera.\n\xBFQui\xE9n sabe? Quiz\xE1s el Espacio-Tiempo
-    se haya roto..."
-  - Otra vez...
+  - "Lorey \xA1has conseguido crear el bucle temporal!"
+  - "Efectivamente, todo ha salido a pedir de Milhouse.\n(De pura chiripa c\xF3smica)"
+  - "P-pero \xBFqu\xE9 vas a hacer con el interrumpido pero inminente colapso del
+    espacio-tiempo?"
+  - "Supongo que recuperar\xE9 los pedazos del rub\xED...\nAs\xED que primero tendr\xE9
+    que salir de la mansi\xF3n."
+  - "\xA1Pues vamos a ello!"

@@ -32,6 +32,7 @@ public class UIEspejo : MonoBehaviour
     {
         if(statsPlayer.esence >= 20 && statsPlayer.maxLife < 10)
         {
+            AudioManager.instance.ComprarCosaSFX();
             statsPlayer.UpdateMaxHealth(1);
             statsPlayer.esence -= 20;
         }
@@ -41,6 +42,7 @@ public class UIEspejo : MonoBehaviour
     {
         if (statsPlayer.esence >= 20 && statsPlayer.maxMana < 10)
         {
+            AudioManager.instance.ComprarCosaSFX();
             statsPlayer.UpdateMaxMana(1);
             statsPlayer.esence -= 20;
         }
@@ -50,6 +52,7 @@ public class UIEspejo : MonoBehaviour
     {
         if (statsPlayer.esence >= 20)
         {
+            AudioManager.instance.ComprarCosaSFX();
             statsPlayer.attack++;
             statsPlayer.esence -= 20;
         }
@@ -59,6 +62,7 @@ public class UIEspejo : MonoBehaviour
     {
         if (statsPlayer.esence >= 20)
         {
+            AudioManager.instance.ComprarCosaSFX();
             statsPlayer.elementalDamage += (float) 0.1;
             statsPlayer.esence -= 20;
         }
@@ -68,6 +72,7 @@ public class UIEspejo : MonoBehaviour
     {
         if (statsPlayer.coin >= 5)
         {
+            AudioManager.instance.ComprarCosaSFX();
             statsPlayer.esence++;
             statsPlayer.coin -= 5;
         }

@@ -121,9 +121,7 @@ public class StatsPlayer : MonoBehaviour
 
     public void UpdateHealth(int health)
     {
-        if (currentLife + health <= maxLife && 0 <= currentLife + health)
-        {
-            currentLife += health;
+        currentLife += health;
             //print("UpdateHealth " + health);
 
             for(int i = 0; i < maxLife; i++)
@@ -137,7 +135,10 @@ public class StatsPlayer : MonoBehaviour
                     Vida[i].enabled = false;
                 }
             }
-        }
+        /*if (currentLife + health <= maxLife && 0 <= currentLife + health)
+        {
+            
+        }*/
     }
 
     public void UpdateMana(int mana)
