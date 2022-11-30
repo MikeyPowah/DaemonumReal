@@ -164,17 +164,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3489525517482172932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18dc295184886ad48baed87b62c9e800, type: 3}
+  m_Script: {fileID: 11500000, guid: 849a8c9e0b9cde04b8534b840ee3e387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distancia: 10
   playerObj: {fileID: 0}
-  enemy: {fileID: 3489525517482173054}
+  damage: 0
+  hp: 10
   timeLoreyRemaining: 1
-  espada: {fileID: 0}
-  lorey: {fileID: 0}
   timeRemaining: 1
-  enemigoMovimiento: {fileID: 3489525517482172930}
 --- !u!1 &3489525517695562349
 GameObject:
   m_ObjectHideFlags: 0

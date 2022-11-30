@@ -79,9 +79,21 @@ public class StatsPlayer : MonoBehaviour
         if (currentLife <= 0)
         {
             Debug.Log("muelto");
+            passStats();
         }
     }
+    public void passStats(){
+        StatsManager.instance.setStats(maxLife, maxMana, attack, coin, esence, elementalDamage);
+    }
 
+    public void setStats(int maxL, int maxM, int a, int c, int e, float elem){
+        maxLife = maxL;
+        maxMana = maxM;
+        attack = a;
+        elementalDamage = elem;
+        coin = c;
+        esence = e;
+    }
     
     public void UpdateMaxHealth(int health)
     {

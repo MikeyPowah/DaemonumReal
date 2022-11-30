@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 4, y: 4}
-  offset: {x: 50, y: 50}
+  offset: {x: 75, y: 75}
   maxRoomPath: 4
   startRoom: {fileID: 5677473575074310198, guid: 696dbe97cdc32654f8ebd26dcf2a313f, type: 3}
   normalRoom:

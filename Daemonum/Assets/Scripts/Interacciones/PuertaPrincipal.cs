@@ -10,7 +10,10 @@ public class PuertaPrincipal : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        SceneManager.LoadScene("Level1");
+        GameObject.Find("Player").GetComponent<StatsPlayer>().passStats();
+        SceneManager.LoadScene("Sandbox");
+        StatsManager.instance.getPlayer();
         return true;
     }
+
 }

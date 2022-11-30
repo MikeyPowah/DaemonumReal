@@ -1172,7 +1172,7 @@ PrefabInstance:
     - target: {fileID: 7967091283231243053, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ac0f2e217c7211649852cdfd6a365e2e, type: 2}
+      objectReference: {fileID: 2100000, guid: 1e9e3be10b713154d82c633af5176894, type: 2}
     - target: {fileID: 7997997338115178714, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Name
       value: Silla6
@@ -1208,15 +1208,15 @@ PrefabInstance:
     - target: {fileID: 8864705860107612291, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5d6aeb6faa472894c86a6ed5b7d3fd1c, type: 2}
+      objectReference: {fileID: 2100000, guid: 76ba1d56f45a5f64fbabf3fc06471cfc, type: 2}
     - target: {fileID: 8911798049509879236, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5d6aeb6faa472894c86a6ed5b7d3fd1c, type: 2}
+      objectReference: {fileID: 2100000, guid: 76ba1d56f45a5f64fbabf3fc06471cfc, type: 2}
     - target: {fileID: 9031918721961460577, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5d6aeb6faa472894c86a6ed5b7d3fd1c, type: 2}
+      objectReference: {fileID: 2100000, guid: 76ba1d56f45a5f64fbabf3fc06471cfc, type: 2}
     - target: {fileID: 9117722456149154330, guid: 1119a0d85ac93134eae75b0d1e971721, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
