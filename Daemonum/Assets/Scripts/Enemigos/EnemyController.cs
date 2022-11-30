@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
             if (collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
             {
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
+                Debug.Log("Es Elemental con daño: " + (collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage));
                 if (health <= 0)
                 {
                     GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
@@ -47,6 +48,7 @@ public class EnemyController : MonoBehaviour
             }
             else { 
                 gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
+                Debug.Log("No es elemental");
                 if (health <= 0)
                 {
                     GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StatsPlayer : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class StatsPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StatsManager.instance.getPlayer();
         currentLife = maxLife;
         currentMana = maxMana;
         UpdateMaxHealth(0);
@@ -78,9 +80,13 @@ public class StatsPlayer : MonoBehaviour
         }
         if (currentLife <= 0)
         {
-            Debug.Log("muelto");
-            passStats();
+            omaeWaMouShindeiru();
         }
+    }
+    public void omaeWaMouShindeiru(){
+        Debug.Log("muelto");
+        SceneManager.LoadScene("Game");
+        passStats();
     }
     public void passStats(){
         StatsManager.instance.setStats(maxLife, maxMana, attack, coin, esence, elementalDamage);

@@ -25,6 +25,7 @@ public class tiempo : MonoBehaviour
             else
             {
                 timeStr.text = "Perdiste";
+                GameObject.Find("Player").GetComponent<StatsPlayer>().omaeWaMouShindeiru();
                 timeRemaining = 0;
             }
         }else{
@@ -47,7 +48,7 @@ public class tiempo : MonoBehaviour
     }
     void DisplayRandomTime()
     {
-        int timeToDisplay =  Random.Range(0,3601);
+        int timeToDisplay =  Random.Range(1,3601);
     float minutes = Mathf.FloorToInt(timeToDisplay / 60);  
     float seconds = Mathf.FloorToInt(timeToDisplay % 60);
     timeStr.text = string.Format("{0:00}:{1:00}", minutes, seconds);
