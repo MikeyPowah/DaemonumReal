@@ -34,7 +34,7 @@ public class Interactor : MonoBehaviour
             if (_interactable != null)
             {
                 if (!_interactionPromptUI.IsDisplayed) _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
-                if (Input.GetKeyDown(KeyCode.E)) _interactable.Interact(this);
+                if (Input.GetKeyDown(KeyCode.F)) _interactable.Interact(this);
                 
             }
         }

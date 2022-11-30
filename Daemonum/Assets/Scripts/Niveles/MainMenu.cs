@@ -26,6 +26,11 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void IntroScene()
+    {
+        SceneManager.LoadScene("Intro");
+    }
+
     public void GameScene()
     {
         SceneManager.LoadScene("Dialogo");

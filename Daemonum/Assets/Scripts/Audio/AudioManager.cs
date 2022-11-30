@@ -40,6 +40,14 @@ public class AudioManager : MonoBehaviour
 		sonidoSource.GetComponent<AudioSource>().Play();
 	}
 
+    public void PlayMusicBatalla(AudioClip clip)
+	{
+        //Debug.Log("AEDRUIFGHAPISEDUFGBHA IOSYEFGO");
+		sonidoSource.clip = clip;
+        sonidoSource.GetComponent<AudioSource>().volume = 0.10f;
+		sonidoSource.GetComponent<AudioSource>().Play();
+	}
+
     public void CambiarVolumen(float volumen)
     {
         Debug.Log("AEDRUIFGHAPISEDUFGBHA IOSYEFGO");
@@ -50,7 +58,7 @@ public class AudioManager : MonoBehaviour
     {
         AudioClip clip = listaEspada[Random.Range(0,5)];
 
-        sonidoSource.PlayOneShot(clip, 0.15f);
+        sonidoSource.PlayOneShot(clip, 0.25f);
     }
 
     public void EnemigoDañadoSFX()
@@ -80,12 +88,12 @@ public class AudioManager : MonoBehaviour
 
     public void NextDialogoSFX()
     {
-        sonidoSource.PlayOneShot(nextAudio, 0.80f);
+        sonidoSource.PlayOneShot(nextAudio, 1f);
     }
 
     public void ComprarCosaSFX()
     {
-        sonidoSource.PlayOneShot(comprar, 0.80f);
+        sonidoSource.PlayOneShot(comprar, 1f);
     }
 
     public void MuerteEnemigoSFX()
