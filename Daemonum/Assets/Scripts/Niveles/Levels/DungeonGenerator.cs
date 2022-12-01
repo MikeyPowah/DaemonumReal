@@ -26,7 +26,7 @@ public class DungeonGenerator : MonoBehaviour
     private int asAllShouldBe;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         board = new Cell[size.x,size.y];
         backRooms = new GameObject[size.x,size.y];
