@@ -89,7 +89,10 @@ public class StatsPlayer : MonoBehaviour
         passStats();
     }
     public void passStats(){
-        StatsManager.instance.setStats(maxLife, maxMana, attack, coin, esence, elementalDamage);
+        StatsManager.instance.setStats(maxLife, maxMana, attack, esence, elementalDamage);
+    }
+    public void passStatsWithCoins(){
+        StatsManager.instance.setStatsWithCoins(maxLife, maxMana, attack, coin, esence, elementalDamage);
     }
 
     public void setStats(int maxL, int maxM, int a, int c, int e, float elem){

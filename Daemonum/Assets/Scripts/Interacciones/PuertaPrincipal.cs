@@ -10,7 +10,7 @@ public class PuertaPrincipal : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        GameObject.Find("Player").GetComponent<StatsPlayer>().passStats();
+        GameObject.Find("Player").GetComponent<StatsPlayer>().passStatsWithCoins();
         SceneManager.LoadScene("Level");
         
         return true;

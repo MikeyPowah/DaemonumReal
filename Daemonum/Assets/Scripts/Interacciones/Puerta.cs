@@ -21,8 +21,9 @@ public class Puerta : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        
-        interactor.ObjectInteractor.transform.position = new Vector3(teleportX, 0.5f,teleportY);
+        if(!room.GetComponent<RoomBehaviour>().isClosed){
+            interactor.ObjectInteractor.transform.position = new Vector3(teleportX, 0.5f,teleportY);
+        }
         return true;
     }
 }

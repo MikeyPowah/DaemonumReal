@@ -23,7 +23,14 @@ public class StatsManager : MonoBehaviour
         getPlayer();
         
     }
-    public void setStats(int maxL, int maxM, int a, int c, int e, float elem){
+    public void setStats(int maxL, int maxM, int a, int e, float elem){
+        maxLife = maxL;
+        maxMana = maxM;
+        attack = a;
+        elementalDamage = elem;
+        esence = e;
+    }
+    public void setStatsWithCoins(int maxL, int maxM, int a, int c, int e, float elem){
         maxLife = maxL;
         maxMana = maxM;
         attack = a;

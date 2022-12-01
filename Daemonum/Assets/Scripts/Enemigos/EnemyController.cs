@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class EnemyController : MonoBehaviour
     private Transform enemy;
     protected NavMeshAgent enemyMesh;
     
+    
     [SerializeField] int coins = 0;
     [SerializeField] int damage = 0;
     [SerializeField] float health = 10;
     private bool timerIsRunning = false;
     private bool timerLoreyIsRunning = false;
+    public bool isBoss = false;
     public float timeLoreyRemaining = 1;
     
     public float timeRemaining = 1;
@@ -163,6 +166,13 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                if(isBoss){
+                    SceneManager.LoadScene("Game");
+                    GameObject.Find("Player").GetComponent<StatsPlayer>().passStatsWithCoins();
+                }else{
+                    this.transform.parent.parent.GetComponent<EnemyGenerator>().isDead();
+                }
+                
                 Destroy(gameObject);
             }
         }

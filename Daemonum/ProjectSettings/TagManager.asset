@@ -9,6 +9,7 @@ TagManager:
   - Lorey
   - Espada
   - TreeBoss
+  - Suelo
   layers:
   - Default
   - TransparentFX

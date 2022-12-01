@@ -20,9 +20,14 @@ public class EnemyGenerator : MonoBehaviour
             if(Random.Range(0,2) == 1){
             enemy = Instantiate(listPossibleEnemies[Random.Range(0,listPossibleEnemies.Length)], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, transform);
             isAlive = true;
+            this.transform.parent.GetComponent<ListEnemies>().hodor();
             }
         }
         
+    }
+    public void isDead(){
+        isAlive = false;
+        this.transform.parent.GetComponent<ListEnemies>().hodor();
     }
 
     // Update is called once per frame

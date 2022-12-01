@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2Int size;
     public Vector2Int offset;
     private Vector2Int actual;
-    
+    public GameObject[] suelos;
 
     Cell[,] board;
     GameObject[,] backRooms;
@@ -38,6 +39,11 @@ public class DungeonGenerator : MonoBehaviour
         fillDungeon();
         CheckNeighbours();
         PerfectlyBalanced();
+        suelos = GameObject.FindGameObjectsWithTag("Suelo");
+        for (int i = 0; i < suelos.Length; i++)
+        {
+            suelos[i].GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
         // Debug.Log(board.Count);
         
     }
