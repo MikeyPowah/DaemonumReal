@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1668430289743389401}
   moveSpeed: 7
-  _interactionPromptUI: {fileID: 0}
+  _interactionPromptUI: {fileID: 7250506953929962066}
 --- !u!114 &8939225758459258448
 MonoBehaviour:
   m_ObjectHideFlags: 0
