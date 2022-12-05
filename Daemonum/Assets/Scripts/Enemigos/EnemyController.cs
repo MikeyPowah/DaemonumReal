@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
@@ -14,7 +15,9 @@ public class EnemyController : MonoBehaviour
     
     [SerializeField] int coins = 0;
     [SerializeField] int damage = 0;
+    [SerializeField] float maxHealth = 10;
     [SerializeField] float health = 10;
+    [SerializeField] Image healthbar;
     private bool timerIsRunning = false;
     private bool timerLoreyIsRunning = false;
     public bool isBoss = false;
@@ -69,19 +72,18 @@ public class EnemyController : MonoBehaviour
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
             enemyMesh.speed = 0;
+            collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
             if (this.gameObject.tag == "Champi")
             {
-                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
+                
                 AudioManager.instance.EnemigoAtaqueSFX();
             } 
             else if (this.gameObject.tag == "Slime")
             {
-                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
                 AudioManager.instance.SlimeAtaqueSFX();
             } 
             else if (this.gameObject.tag == "TreeBoss")
             {
-                collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
                 AudioManager.instance.TreeBossAttackSFX();
             }
             //LOREY DMG
@@ -112,6 +114,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         playerObj = GameObject.Find("Player").transform;
         enemyMesh = GetComponent<NavMeshAgent>();
         enemy = GetComponent<Transform>();
@@ -182,5 +185,6 @@ public class EnemyController : MonoBehaviour
     public void gotHurt(float dmg)
     {
         health -= dmg;
+        healthbar.fillAmount = health / maxHealth;
     }
 }

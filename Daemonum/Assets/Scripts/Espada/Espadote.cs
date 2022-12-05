@@ -15,6 +15,7 @@ public class Espadote : MonoBehaviour {
     [SerializeField] private Transform target;
     [SerializeField] private bool Attacking = false;
     [SerializeField] private GameObject Lorey;
+    [SerializeField] private int speedAtaque = 5;
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
     private int Mjonlir;
@@ -24,44 +25,45 @@ public class Espadote : MonoBehaviour {
         animatorLorey = Lorey.GetComponent<Animator>();
         animator = GetComponent<Animator>();
         statsPlayer = player.GetComponent<StatsPlayer>();
+        speedAtaque = 10;
     }
 
     private void Update()
     {
-        if(!Attacking)
+        
+        vectorAtaque = new Vector3(0, 0, 0);
+        if (Input.GetKey(KeyCode.UpArrow) && !Attacking)
         {
+            animator.SetBool("Ataque", true); Attacking = true;
+            vectorAtaque = new Vector3(vectorAtaque.x, 0, vectorAtaque.y+5);
+        }
+        if (Input.GetKey(KeyCode.DownArrow) && !Attacking)
+        {
+            animator.SetBool("Ataque", true); Attacking = true;
+            vectorAtaque = new Vector3(vectorAtaque.x, 0, vectorAtaque.y-5);  
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && !Attacking)
+        {
+            animator.SetBool("Ataque", true); Attacking = true;
+            vectorAtaque = new Vector3(vectorAtaque.x-5, 0, vectorAtaque.y);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && !Attacking)
+        {
+            animator.SetBool("Ataque", true); Attacking = true;
+            vectorAtaque = new Vector3(vectorAtaque.x+5, 0, vectorAtaque.y);
+        }
+        vectorAtaque.Normalize();
+
+        if(!Attacking)
+        {   
+            animator.SetBool("Ataque", false);
             Seguir();
         }
         else
         {
             Atacar();
         }
-            
-        if (Input.GetKey(KeyCode.UpArrow) && !Attacking)
-        {
-            animator.SetBool("Ataque", true); Attacking = true;
-            Mjonlir = 0;
-            vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2);
-        }
-        if (Input.GetKey(KeyCode.DownArrow) && !Attacking)
-        {
-            animator.SetBool("Ataque", true); Attacking = true;
-            Mjonlir = 1;
-            vectorAtaque = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);  
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) && !Attacking)
-        {
-            animator.SetBool("Ataque", true); Attacking = true;
-            Mjonlir = 3;
-            vectorAtaque = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && !Attacking)
-        {
-            animator.SetBool("Ataque", true); Attacking = true;
-            Mjonlir = 2;
-            vectorAtaque = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
-        }
-    
+
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             AudioManager.instance.EspadaSFX();
@@ -84,69 +86,18 @@ public class Espadote : MonoBehaviour {
     private void Seguir()
     {
         Vector3 targetPosition = target.position + offset;
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 
     private void Atacar()
     {
-        switch (Mjonlir)
-        {
-            case 0:
-                if(vectorAtaque.z >= transform.position.z)
-                {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.02f); 
-                }
-                else
-                {
-                    animator.SetBool("Ataque", false);
-                    Attacking = false;
-                }
-                break;      
-            case 1:
-                if(vectorAtaque.z < transform.position.z)
-                {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.02f); 
-                }
-                else
-                {
-                    animator.SetBool("Ataque", false);
-                    Attacking = false;
-                }
-                break;
-            case 2:
-                if(vectorAtaque.x >= transform.position.x)
-                {
-                    transform.position = new Vector3(transform.position.x + 0.02f, transform.position.y, transform.position.z); 
-                }
-                else
-                {
-                    animator.SetBool("Ataque", false);
-                    Attacking = false;
-                }
-                break;
-            case 3:
-                if(vectorAtaque.x < transform.position.x)
-                {
-                    transform.position = new Vector3(transform.position.x - 0.02f, transform.position.y, transform.position.z); 
-                }
-                else
-                {
-                    animator.SetBool("Ataque", false);
-                    Attacking = false;
-                }
-                break;
-            default:
-                if(vectorAtaque.z < transform.position.z)
-                {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.02f); 
-                }
-                else
-                {
-                    animator.SetBool("Ataque", false);
-                    Attacking = false;
-                }
-                break;
-        }
+        
+        
+        // vectorAtaque = new Vector3(vectorAtaque.x * speedAtaque, 0, vectorAtaque.y * speedAtaque);
+        
+        GetComponent<Rigidbody>().velocity = vectorAtaque*speedAtaque;
+        Attacking = false;
 
         /*[SerializeField]
         private float DamageAfterTime;
