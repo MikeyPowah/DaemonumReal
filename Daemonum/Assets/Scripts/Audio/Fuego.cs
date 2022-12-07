@@ -7,9 +7,9 @@ public class Fuego : MonoBehaviour
     [SerializeField] private GameObject fuego;
     [SerializeField] AudioSource sonidoSource;
     private Animator fuegoA;
-    private bool fuegoBool = true;
-    private bool aguaBool = false;
-    private bool rayoBool = false;
+    public bool fuegoBool = true;
+    public bool aguaBool = false;
+    public bool rayoBool = false;
     private bool timerFuegoIsRunning = false;
     public float timeFuegoRemaining = 1;
     [SerializeField]

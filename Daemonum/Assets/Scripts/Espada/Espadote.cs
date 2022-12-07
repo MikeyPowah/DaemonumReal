@@ -15,6 +15,8 @@ public class Espadote : MonoBehaviour {
     [SerializeField] private Transform target;
     [SerializeField] private bool Attacking = false;
     [SerializeField] private GameObject Lorey;
+    [SerializeField] private GameObject fuego;
+    public Fuego Fuego;
     [SerializeField] private int speedAtaque = 5;
     private Vector3 vectorAtaque;
     public float timeBucle = 0.35f;
@@ -26,6 +28,7 @@ public class Espadote : MonoBehaviour {
         animator = GetComponent<Animator>();
         statsPlayer = player.GetComponent<StatsPlayer>();
         speedAtaque = 10;
+        Fuego = fuego.GetComponent<Fuego>();
     }
 
     private void Update()

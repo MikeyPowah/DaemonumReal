@@ -33,61 +33,64 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-        if(collider.gameObject.tag == "Espada" && !timerIsRunning)
+        if (collider.gameObject.tag == "Espada" && !timerIsRunning)
         {
             timerIsRunning = true;
             enemyMesh.speed = 0;
             AudioManager.instance.EnemigoDañadoSFX();
-            if (collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
+            if (collider.gameObject.GetComponent<Espadote>().Fuego.fuegoBool
+                && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
             {
-                gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
-                Debug.Log("Es Elemental con daño: " + (collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage));
-                if (health <= 0)
-                {
-                    GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
-                    AudioManager.instance.MuerteEnemigoSFX();
-                    muerteA.SetBool("Muerte", true);
-                    Debug.Log("Enemigo muelto");
-                    enemyMesh.speed = 0;
-                    muerte = true;
-                }
+                if (this.gameObject.CompareTag("Planta"))
+                    dañoEficaz(collider);
+                else if (this.gameObject.CompareTag("Agua"))
+                    dañoPocoEficaz(collider);
+                else
+                    dañoNeutro(collider);
             }
-            else { 
-                gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
-                Debug.Log("No es elemental");
-                if (health <= 0)
-                {
-                    GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
-                    AudioManager.instance.MuerteEnemigoSFX();
-                    muerteA.SetBool("Muerte", true);
-                    Debug.Log("Enemigo muelto");
-                    enemyMesh.speed = 0;
-                    muerte = true;
-                }
+            else if(collider.gameObject.GetComponent<Espadote>().Fuego.aguaBool
+                && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
+            {
+                if (this.gameObject.CompareTag("Fuego"))
+                    dañoEficaz(collider);
+                else if (this.gameObject.CompareTag("Planta"))
+                    dañoPocoEficaz(collider);
+                else
+                    dañoNeutro(collider);
             }
-
+            else if (collider.gameObject.GetComponent<Espadote>().Fuego.rayoBool
+                && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
+            {
+                if (this.gameObject.CompareTag("Agua"))
+                    dañoEficaz(collider);
+                else if (this.gameObject.CompareTag("Fuego"))
+                    dañoPocoEficaz(collider);
+                else
+                    dañoNeutro(collider);
+            }
+            else
+                dañoNeutro(collider);
         }
+
+        //ataque a Lorey
         if(collider.gameObject.tag == "Lorey" && !timerLoreyIsRunning && !muerte)
         {
             timerLoreyIsRunning = true;
             Debug.Log("ATAQUE");
             enemyMesh.speed = 0;
             collider.gameObject.GetComponent<StatsPlayer>().gotHurt(-damage);
-            if (this.gameObject.tag == "Champi")
+            if (this.gameObject.CompareTag("Champi"))
             {
-                
                 AudioManager.instance.EnemigoAtaqueSFX();
             } 
-            else if (this.gameObject.tag == "Slime")
+            else if (this.gameObject.CompareTag("Slime"))
             {
                 AudioManager.instance.SlimeAtaqueSFX();
             } 
-            else if (this.gameObject.tag == "TreeBoss")
+            else if (this.gameObject.CompareTag("TreeBoss"))
             {
                 AudioManager.instance.TreeBossAttackSFX();
             }
-            //LOREY DMG
-            //statsPlayer.UpdateHealth(-1);
         }
     }
     /*
@@ -186,5 +189,50 @@ public class EnemyController : MonoBehaviour
     {
         health -= dmg;
         healthbar.fillAmount = health / maxHealth;
+    }
+
+    public void dañoEficaz(Collider collider)
+    {
+        gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
+        Debug.Log("Eficaz con Daño:" + collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage);
+        if (health <= 0)
+        {
+            GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
+            AudioManager.instance.MuerteEnemigoSFX();
+            muerteA.SetBool("Muerte", true);
+            Debug.Log("Enemigo muelto");
+            enemyMesh.speed = 0;
+            muerte = true;
+        }
+    }
+
+    public void dañoNeutro(Collider collider)
+    {
+        gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
+        Debug.Log("Neutro con Daño:" + collider.gameObject.GetComponent<Espadote>().statsPlayer.attack);
+        if (health <= 0)
+        {
+            GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
+            AudioManager.instance.MuerteEnemigoSFX();
+            muerteA.SetBool("Muerte", true);
+            Debug.Log("Enemigo muelto");
+            enemyMesh.speed = 0;
+            muerte = true;
+        }
+    }
+
+    public void dañoPocoEficaz(Collider collider)
+    {
+        gotHurt(collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * (collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage - 1));
+        Debug.Log("Poco Eficaz con daño: " + collider.gameObject.GetComponent<Espadote>().statsPlayer.attack * (collider.gameObject.GetComponent<Espadote>().statsPlayer.elementalDamage - 1));
+        if (health <= 0)
+        {
+            GameObject.Find("Player").GetComponent<StatsPlayer>().coin += coins;
+            AudioManager.instance.MuerteEnemigoSFX();
+            muerteA.SetBool("Muerte", true);
+            Debug.Log("Enemigo muelto");
+            enemyMesh.speed = 0;
+            muerte = true;
+        }
     }
 }

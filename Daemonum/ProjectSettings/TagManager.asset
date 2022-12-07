@@ -10,6 +10,9 @@ TagManager:
   - Espada
   - TreeBoss
   - Suelo
+  - Fuego
+  - Agua
+  - Planta
   layers:
   - Default
   - TransparentFX
