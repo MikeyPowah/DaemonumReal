@@ -7,7 +7,9 @@ public class Fuego : MonoBehaviour
     [SerializeField] private GameObject fuego;
     [SerializeField] AudioSource sonidoSource;
     private Animator fuegoA;
-    private bool fuegoBool = false;
+    private bool fuegoBool = true;
+    private bool aguaBool = false;
+    private bool rayoBool = false;
     private bool timerFuegoIsRunning = false;
     public float timeFuegoRemaining = 1;
     [SerializeField]
@@ -29,26 +31,30 @@ public class Fuego : MonoBehaviour
             fuegoBool = false;
             sonidoSource.mute = true;
         }*/
-        if(Input.GetKeyDown(KeyCode.E) && !timerFuegoIsRunning)
+        if(Input.GetKeyDown(KeyCode.E) && !timerFuegoIsRunning && fuegoBool)
         {
-            if(fuegoBool)
-            {
-                fuegoA.SetBool("Fuego", false);
-                fuegoBool = false;
-                timerFuegoIsRunning = true;
-                sonidoSource.mute = true;
-                statsPlayer.elemental = false;
-            }
+            if(statsPlayer.elemental)
+                desactivarFuego();
             else
-            {
-                fuegoA.SetBool("Fuego", true);
-                fuegoBool = true;
-                timerFuegoIsRunning = true;
-                sonidoSource.mute = false;
-                statsPlayer.elemental = true;
-            }
-        } 
-        
+                activarFuego();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !timerFuegoIsRunning && aguaBool)
+        {
+            if (statsPlayer.elemental)
+                desactivarAgua();
+            else
+                activarAgua();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !timerFuegoIsRunning && rayoBool)
+        {
+            if (statsPlayer.elemental)
+                desactivarRayo();
+            else
+                activarRayo();
+        }
+
         if (timerFuegoIsRunning)
         {
             if (timeFuegoRemaining > 0)
@@ -64,11 +70,90 @@ public class Fuego : MonoBehaviour
 
         if(statsPlayer.currentMana <= 0)
         {
-            fuegoA.SetBool("Fuego", false);
-            fuegoBool = false;
-            timerFuegoIsRunning = true;
-            sonidoSource.mute = true;
-            statsPlayer.elemental = false;
+            if (fuegoBool)
+                desactivarFuego();
+            else if (aguaBool)
+                desactivarAgua();
+            else
+                desactivarRayo();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !statsPlayer.elemental)
+        {
+            statsPlayer.UpdateElement(1);
+            fuegoBool = true;
+            aguaBool = false;
+            rayoBool = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !statsPlayer.elemental)
+        {
+            statsPlayer.UpdateElement(2);
+            aguaBool = true;
+            fuegoBool = false;
+            rayoBool = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !statsPlayer.elemental)
+        {
+            statsPlayer.UpdateElement(3);
+            rayoBool = true;
+            fuegoBool = false;
+            aguaBool = false;
+        }
+    }
+
+    private void activarFuego()
+    {
+        fuegoA.SetBool("Fuego", true);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = false;
+        statsPlayer.elemental = true;
+        statsPlayer.EnableElement();
+    }
+
+    private void desactivarFuego()
+    {
+        fuegoA.SetBool("Fuego", false);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = true;
+        statsPlayer.elemental = false;
+        statsPlayer.DisableElement();
+    }
+
+    private void activarAgua()
+    {
+        //fuegoA.SetBool("Fuego", true);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = false;
+        statsPlayer.elemental = true;
+        statsPlayer.EnableElement();
+    }
+
+    private void desactivarAgua()
+    {
+        //fuegoA.SetBool("Fuego", false);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = true;
+        statsPlayer.elemental = false;
+        statsPlayer.DisableElement();
+    }
+
+    private void activarRayo()
+    {
+        //fuegoA.SetBool("Fuego", true);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = false;
+        statsPlayer.elemental = true;
+        statsPlayer.EnableElement();
+    }
+
+    private void desactivarRayo()
+    {
+        //fuegoA.SetBool("Fuego", false);
+        timerFuegoIsRunning = true;
+        sonidoSource.mute = true;
+        statsPlayer.elemental = false;
+        statsPlayer.DisableElement();
     }
 }

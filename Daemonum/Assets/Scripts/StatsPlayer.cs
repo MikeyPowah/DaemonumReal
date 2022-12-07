@@ -12,6 +12,9 @@ public class StatsPlayer : MonoBehaviour
     float timeRemaining = 1;
     bool timerIsRunning = true;
 
+    public int currentElement = 1;
+    public int[] Elements;
+
     [SerializeField]
     private Image[] barraVida;
     [SerializeField]
@@ -21,6 +24,11 @@ public class StatsPlayer : MonoBehaviour
     private Image[] Vida;
     [SerializeField]
     private Image[] Mana;
+
+    [SerializeField]
+    private Image[] ElementsIMG;
+    [SerializeField]
+    private Image[] ActiveElementsIMG;
 
     [SerializeField] private GameObject m_GotHitScreen;
     // Start is called before the first frame update
@@ -40,6 +48,15 @@ public class StatsPlayer : MonoBehaviour
         for(int i = maxLife; i < Vida.Length; i++)
         {
             Vida[i].enabled = false;
+        }
+
+        for (int i = 0; i < Elements.Length; i++)
+        {
+            ActiveElementsIMG[i].enabled = false;
+            if(Elements[i] == currentElement)
+                ElementsIMG[i].enabled = true;
+            else
+                ElementsIMG[i].enabled = false;
         }
     }
 
@@ -191,5 +208,30 @@ public class StatsPlayer : MonoBehaviour
         m_GotHitScreen.GetComponent<Image>().color = color;
         Debug.Log(dmg);
         UpdateHealth(dmg);
+    }
+
+    public void UpdateElement(int num)
+    {
+        currentElement = num;
+
+        for (int i = 0; i < Elements.Length; i++)
+        {
+            if (Elements[i] == currentElement)
+                ElementsIMG[i].enabled = true;
+            else
+                ElementsIMG[i].enabled = false;
+        }
+    }
+
+    public void EnableElement()
+    {
+        ElementsIMG[currentElement - 1].enabled = false;
+        ActiveElementsIMG[currentElement - 1].enabled = true;
+    }
+
+    public void DisableElement()
+    {
+        ElementsIMG[currentElement - 1].enabled = true;
+        ActiveElementsIMG[currentElement - 1].enabled = false;
     }
 }
