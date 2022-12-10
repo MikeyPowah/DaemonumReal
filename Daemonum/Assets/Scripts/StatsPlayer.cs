@@ -102,7 +102,7 @@ public class StatsPlayer : MonoBehaviour
     }
     public void omaeWaMouShindeiru(){
         Debug.Log("muelto");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Muerte");
         passStats();
     }
     public void passStats(){
