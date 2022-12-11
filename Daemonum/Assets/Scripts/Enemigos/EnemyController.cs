@@ -41,9 +41,9 @@ public class EnemyController : MonoBehaviour
             if (collider.gameObject.GetComponent<Espadote>().Fuego.fuegoBool
                 && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
             {
-                if (this.gameObject.CompareTag("Planta"))
+                if (this.gameObject.CompareTag("Champi") || this.gameObject.CompareTag("TreeBoss"))
                     dañoEficaz(collider);
-                else if (this.gameObject.CompareTag("Agua"))
+                else if (this.gameObject.CompareTag("SlimeAgua"))
                     dañoPocoEficaz(collider);
                 else
                     dañoNeutro(collider);
@@ -51,9 +51,9 @@ public class EnemyController : MonoBehaviour
             else if(collider.gameObject.GetComponent<Espadote>().Fuego.aguaBool
                 && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
             {
-                if (this.gameObject.CompareTag("Fuego"))
+                if (this.gameObject.CompareTag("SlimeFuego"))
                     dañoEficaz(collider);
-                else if (this.gameObject.CompareTag("Planta"))
+                else if (this.gameObject.CompareTag("Champi") || this.gameObject.CompareTag("TreeBoss"))
                     dañoPocoEficaz(collider);
                 else
                     dañoNeutro(collider);
@@ -61,9 +61,9 @@ public class EnemyController : MonoBehaviour
             else if (collider.gameObject.GetComponent<Espadote>().Fuego.rayoBool
                 && collider.gameObject.GetComponent<Espadote>().statsPlayer.elemental)
             {
-                if (this.gameObject.CompareTag("Agua"))
+                if (this.gameObject.CompareTag("SlimeAgua"))
                     dañoEficaz(collider);
-                else if (this.gameObject.CompareTag("Fuego"))
+                else if (this.gameObject.CompareTag("SlimeFuego"))
                     dañoPocoEficaz(collider);
                 else
                     dañoNeutro(collider);
@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
             {
                 AudioManager.instance.EnemigoAtaqueSFX();
             } 
-            else if (this.gameObject.CompareTag("Slime"))
+            else if (this.gameObject.CompareTag("SlimeAgua") || this.gameObject.CompareTag("SlimeFuego"))
             {
                 AudioManager.instance.SlimeAtaqueSFX();
             } 

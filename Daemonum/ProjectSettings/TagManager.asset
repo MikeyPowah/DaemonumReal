@@ -10,8 +10,10 @@ TagManager:
   - Espada
   - TreeBoss
   - Suelo
-  - Fuego
+  - SlimeAgua
+  - SlimeFuego
   - Agua
+  - Fuego
   - Planta
   layers:
   - Default

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Fuego : MonoBehaviour
 {
     [SerializeField] private GameObject fuego;
-    [SerializeField] AudioSource sonidoSource;
+    [SerializeField] AudioSource sonidoSourceFuego;
+    [SerializeField] AudioSource sonidoSourceAgua;
+    [SerializeField] AudioSource sonidoSourceRayo;
     private Animator fuegoA;
     public bool fuegoBool = true;
     public bool aguaBool = false;
@@ -107,7 +109,7 @@ public class Fuego : MonoBehaviour
     {
         fuegoA.SetBool("Fuego", true);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = false;
+        sonidoSourceFuego.mute = false;
         statsPlayer.elemental = true;
         statsPlayer.EnableElement();
     }
@@ -116,7 +118,7 @@ public class Fuego : MonoBehaviour
     {
         fuegoA.SetBool("Fuego", false);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = true;
+        sonidoSourceFuego.mute = true;
         statsPlayer.elemental = false;
         statsPlayer.DisableElement();
     }
@@ -125,7 +127,7 @@ public class Fuego : MonoBehaviour
     {
         //fuegoA.SetBool("Fuego", true);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = false;
+        sonidoSourceAgua.mute = false;
         statsPlayer.elemental = true;
         statsPlayer.EnableElement();
     }
@@ -134,7 +136,7 @@ public class Fuego : MonoBehaviour
     {
         //fuegoA.SetBool("Fuego", false);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = true;
+        sonidoSourceAgua.mute = true;
         statsPlayer.elemental = false;
         statsPlayer.DisableElement();
     }
@@ -143,7 +145,7 @@ public class Fuego : MonoBehaviour
     {
         //fuegoA.SetBool("Fuego", true);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = false;
+        sonidoSourceRayo.mute = false;
         statsPlayer.elemental = true;
         statsPlayer.EnableElement();
     }
@@ -152,7 +154,7 @@ public class Fuego : MonoBehaviour
     {
         //fuegoA.SetBool("Fuego", false);
         timerFuegoIsRunning = true;
-        sonidoSource.mute = true;
+        sonidoSourceRayo.mute = true;
         statsPlayer.elemental = false;
         statsPlayer.DisableElement();
     }
