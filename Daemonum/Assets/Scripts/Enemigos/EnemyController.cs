@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     public bool isBoss = false;
     public float timeLoreyRemaining = 1;
     
-    public float timeRemaining = 1;
+    public float timeRemaining = 1f;
     //[SerializeField] private NavMeshAgent enemyMesh;
 
     private float timerMuerte = 1f;
@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
             {
                 AudioManager.instance.EnemigoAtaqueSFX();
             } 
-            else if (this.gameObject.CompareTag("SlimeAgua") || this.gameObject.CompareTag("SlimeFuego"))
+            else if (this.gameObject.CompareTag("SlimeAgua") || this.gameObject.CompareTag("SlimeFuego") || this.gameObject.CompareTag("Slime"))
             {
                 AudioManager.instance.SlimeAtaqueSFX();
             } 

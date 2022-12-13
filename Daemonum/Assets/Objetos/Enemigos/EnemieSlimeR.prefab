@@ -633,7 +633,7 @@ MonoBehaviour:
   healthbar: {fileID: 719519811832284131}
   isBoss: 0
   timeLoreyRemaining: 1
-  timeRemaining: 1
+  timeRemaining: 0.5
   muerteGO: {fileID: 5613057559794012938}
 --- !u!1 &6445025390253686015
 GameObject:

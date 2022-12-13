@@ -125,7 +125,7 @@ public class Fuego : MonoBehaviour
 
     private void activarAgua()
     {
-        //fuegoA.SetBool("Fuego", true);
+        fuegoA.SetBool("Agua", true);
         timerFuegoIsRunning = true;
         sonidoSourceAgua.mute = false;
         statsPlayer.elemental = true;
@@ -134,7 +134,7 @@ public class Fuego : MonoBehaviour
 
     private void desactivarAgua()
     {
-        //fuegoA.SetBool("Fuego", false);
+        fuegoA.SetBool("Agua", false);
         timerFuegoIsRunning = true;
         sonidoSourceAgua.mute = true;
         statsPlayer.elemental = false;
@@ -143,7 +143,7 @@ public class Fuego : MonoBehaviour
 
     private void activarRayo()
     {
-        //fuegoA.SetBool("Fuego", true);
+        fuegoA.SetBool("Rayo", true);
         timerFuegoIsRunning = true;
         sonidoSourceRayo.mute = false;
         statsPlayer.elemental = true;
@@ -152,7 +152,7 @@ public class Fuego : MonoBehaviour
 
     private void desactivarRayo()
     {
-        //fuegoA.SetBool("Fuego", false);
+        fuegoA.SetBool("Rayo", false);
         timerFuegoIsRunning = true;
         sonidoSourceRayo.mute = true;
         statsPlayer.elemental = false;
