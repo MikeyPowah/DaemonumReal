@@ -34,7 +34,7 @@ public class StatsPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StatsManager.instance.getPlayer();
+        StatsManager.instance.getPlayer();
         currentLife = maxLife;
         currentMana = maxMana;
         UpdateMaxHealth(0);
