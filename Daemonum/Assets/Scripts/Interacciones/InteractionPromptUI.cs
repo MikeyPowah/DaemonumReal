@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class InteractionPromptUI : MonoBehaviour
 {
     [SerializeField] private GameObject _uiPanel;
-    [SerializeField] private TextMeshProUGUI _promptText;
+    [SerializeField] private Text _promptText;
     
     public bool IsDisplayed = false;
 

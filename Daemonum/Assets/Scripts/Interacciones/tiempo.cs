@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class tiempo : MonoBehaviour
@@ -8,7 +9,7 @@ public class tiempo : MonoBehaviour
     public float timeRemaining = 300;
     public float timeBucle = 0.35f;
     [SerializeField] private bool timerIsRunning = false;
-    [SerializeField] private TextMeshProUGUI timeStr;
+    [SerializeField] private Text timeStr;
     private void Start()
     {
         DisplayRandomTime();

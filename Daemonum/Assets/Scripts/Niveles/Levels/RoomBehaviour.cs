@@ -31,10 +31,18 @@ public class RoomBehaviour : MonoBehaviour
     }
     public void accessTrue(){
         isClosed = true;
-        Debug.Log("Ha accedido correctamente isClosed = true");
+        foreach (var door in doors)
+        {
+            door.GetComponent<Puerta>().doorOpened.SetActive(false);
+            door.GetComponent<Puerta>().doorClosed.SetActive(true);
+        }
     }
     public void accessFalse(){
         isClosed = false;
-        Debug.Log("Ha accedido correctamente isClosed = false");
+        foreach (var door in doors)
+        {
+            door.GetComponent<Puerta>().doorOpened.SetActive(true);
+            door.GetComponent<Puerta>().doorClosed.SetActive(false);
+        }
     }
 }

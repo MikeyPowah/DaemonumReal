@@ -9,6 +9,8 @@ public class Puerta : MonoBehaviour, IInteractable
     public float teleportX = 0;
     public float teleportY = 0;
     [SerializeField] private GameObject room;
+    [SerializeField] public GameObject doorClosed;
+    [SerializeField] public GameObject doorOpened;
 
     
     private string _prompt = "Cambiar de Sala";
@@ -26,4 +28,5 @@ public class Puerta : MonoBehaviour, IInteractable
         }
         return true;
     }
+
 }
