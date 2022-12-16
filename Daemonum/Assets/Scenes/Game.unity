@@ -1578,6 +1578,7 @@ MonoBehaviour:
   rigidbody: {fileID: 286316445}
   moveSpeed: 7
   _interactionPromptUI: {fileID: 1226977868}
+  canMove: 1
 --- !u!114 &286316444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6861,7 +6862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1226977863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12056,7 +12057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4371383858025714639
 GameObject:
   m_ObjectHideFlags: 0

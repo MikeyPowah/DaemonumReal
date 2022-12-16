@@ -47,7 +47,7 @@ public class DialogueUI : MonoBehaviour
                 loreyHabla = true;
             }
             yield return typewritterEffect.Run(dialogue, textLabel);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            yield return new WaitUntil(() => Input.anyKeyDown);
             AudioManager.instance.NextDialogoSFX();
         }
         CloseDialogueBox();

@@ -8,6 +8,7 @@ public class InteractionPromptUI : MonoBehaviour
 {
     [SerializeField] private GameObject _uiPanel;
     [SerializeField] private Text _promptText;
+    private GameObject player;
     
     public bool IsDisplayed = false;
 
@@ -23,13 +24,17 @@ public class InteractionPromptUI : MonoBehaviour
         IsDisplayed = true;
     }
     public void Open()
-    {        
+    {
         _uiPanel.SetActive(true);
+        player = GameObject.Find("Player");
+        player.GetComponent<Movimiento>().canMove = false;
         IsDisplayed = true;
     }
     public void Close()
     {        
         _uiPanel.SetActive(false);
+        player = GameObject.Find("Player");
+        player.GetComponent<Movimiento>().canMove = true;
         IsDisplayed = false;
     }
 }
