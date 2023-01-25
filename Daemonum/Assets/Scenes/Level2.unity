@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142e9ce5058a02446a34d3f948baed26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musica: {fileID: 8300000, guid: 6cb8d5b9eda83f5498ba446aff622f5d, type: 3}
+  musica: {fileID: 8300000, guid: 886849a07dc2ace42b21bbd16b3dce8e, type: 3}
 --- !u!1 &1613030560
 GameObject:
   m_ObjectHideFlags: 0
