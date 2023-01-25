@@ -2675,6 +2675,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1668430289743389401}
   moveSpeed: 7
   _interactionPromptUI: {fileID: 7250506953929962066}
+  canMove: 1
 --- !u!114 &8939225758459258448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,8 +2697,8 @@ MonoBehaviour:
   esence: 0
   elementalDamage: 1.5
   elemental: 0
-  currentElement: 1
-  Elements: 010000000200000003000000
+  currentElement: 0
+  Elements: 000000000100000002000000
   barraVida:
   - {fileID: 6168336995242585704}
   - {fileID: 563648065495608997}

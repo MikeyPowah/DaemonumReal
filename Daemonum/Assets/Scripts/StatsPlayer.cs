@@ -12,7 +12,7 @@ public class StatsPlayer : MonoBehaviour
     float timeRemaining = 1;
     bool timerIsRunning = true;
 
-    public int currentElement = 1;
+    public int currentElement = 0;
     public int[] Elements;
 
     [SerializeField]
@@ -210,9 +210,9 @@ public class StatsPlayer : MonoBehaviour
         UpdateHealth(dmg);
     }
 
-    public void UpdateElement(int num)
+    public int UpdateElement(int num)
     {
-        currentElement = num;
+        currentElement = (currentElement + num) % 3;
 
         for (int i = 0; i < Elements.Length; i++)
         {
@@ -221,17 +221,19 @@ public class StatsPlayer : MonoBehaviour
             else
                 ElementsIMG[i].enabled = false;
         }
+
+        return currentElement;
     }
 
     public void EnableElement()
     {
-        ElementsIMG[currentElement - 1].enabled = false;
-        ActiveElementsIMG[currentElement - 1].enabled = true;
+        ElementsIMG[currentElement].enabled = false;
+        ActiveElementsIMG[currentElement].enabled = true;
     }
 
     public void DisableElement()
     {
-        ElementsIMG[currentElement - 1].enabled = true;
-        ActiveElementsIMG[currentElement - 1].enabled = false;
+        ElementsIMG[currentElement].enabled = true;
+        ActiveElementsIMG[currentElement].enabled = false;
     }
 }

@@ -1522,7 +1522,7 @@ MonoBehaviour:
   esence: 10
   elementalDamage: 1
   elemental: 0
-  currentElement: 1
+  currentElement: 0
   Elements: 
   barraVida:
   - {fileID: 78081956}

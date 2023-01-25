@@ -17,6 +17,7 @@ public class Fuego : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private StatsPlayer statsPlayer;
+    private int currentElement;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,28 +81,29 @@ public class Fuego : MonoBehaviour
                 desactivarRayo();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !statsPlayer.elemental)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !statsPlayer.elemental)
         {
-            statsPlayer.UpdateElement(1);
-            fuegoBool = true;
-            aguaBool = false;
-            rayoBool = false;
-        }
+            currentElement = statsPlayer.UpdateElement(1);
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !statsPlayer.elemental)
-        {
-            statsPlayer.UpdateElement(2);
-            aguaBool = true;
-            fuegoBool = false;
-            rayoBool = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !statsPlayer.elemental)
-        {
-            statsPlayer.UpdateElement(3);
-            rayoBool = true;
-            fuegoBool = false;
-            aguaBool = false;
+            switch (currentElement)
+            {
+                case 0:
+                    fuegoBool = true;
+                    aguaBool = false;
+                    rayoBool = false;
+                    break;
+                case 1:
+                    aguaBool = true;
+                    fuegoBool = false;
+                    rayoBool = false;
+                    break;
+                case 2:
+                    rayoBool = true;
+                    fuegoBool = false;
+                    aguaBool = false;
+                    break;
+            }
+            
         }
     }
 
