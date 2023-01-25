@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float distancia;
     public Transform playerObj;
     private Transform enemy;
+    public GameObject doorNextLevel;
     protected NavMeshAgent enemyMesh;
     
     
@@ -173,8 +174,9 @@ public class EnemyController : MonoBehaviour
             else
             {
                 if(isBoss){
-                    SceneManager.LoadScene("Game");
-                    GameObject.Find("Player").GetComponent<StatsPlayer>().passStatsWithCoins();
+                    
+                    doorNextLevel.GetComponent<PuertaNextLevel>().appear();
+                    
                 }else{
                     this.transform.parent.parent.GetComponent<EnemyGenerator>().isDead();
                 }
