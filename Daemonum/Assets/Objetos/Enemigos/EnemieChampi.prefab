@@ -431,7 +431,7 @@ MonoBehaviour:
   distancia: 10
   playerObj: {fileID: 0}
   doorNextLevel: {fileID: 0}
-  coins: 5
+  coins: 10
   damage: 2
   maxHealth: 30
   health: 30

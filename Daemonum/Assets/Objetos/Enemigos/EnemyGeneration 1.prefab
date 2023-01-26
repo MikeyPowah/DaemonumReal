@@ -50,9 +50,11 @@ MonoBehaviour:
   - {fileID: 8507157613114201829, guid: 752d421bc363eb442a5c66d6ad3a1a69, type: 3}
   - {fileID: 7707750920567828824, guid: a2712aa619f9b9441a0eb0135745b077, type: 3}
   - {fileID: 1123221235827613656, guid: 8aa9e46438e2de245bf4555f6df26112, type: 3}
+  - {fileID: 2032816674997081990, guid: 77ec07a3fc58fbf46ac81c8d65b00829, type: 3}
   enemy: {fileID: 0}
   isAlive: 0
   isBoss: 0
+  listEnemiesLevel: 0
 --- !u!1 &7659733506723531097
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,9 +105,11 @@ MonoBehaviour:
   - {fileID: 8507157613114201829, guid: 752d421bc363eb442a5c66d6ad3a1a69, type: 3}
   - {fileID: 7707750920567828824, guid: a2712aa619f9b9441a0eb0135745b077, type: 3}
   - {fileID: 1123221235827613656, guid: 8aa9e46438e2de245bf4555f6df26112, type: 3}
+  - {fileID: 2032816674997081990, guid: 77ec07a3fc58fbf46ac81c8d65b00829, type: 3}
   enemy: {fileID: 0}
   isAlive: 0
   isBoss: 0
+  listEnemiesLevel: 0
 --- !u!1 &8097299150661336220
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,9 +215,11 @@ MonoBehaviour:
   - {fileID: 8507157613114201829, guid: 752d421bc363eb442a5c66d6ad3a1a69, type: 3}
   - {fileID: 7707750920567828824, guid: a2712aa619f9b9441a0eb0135745b077, type: 3}
   - {fileID: 1123221235827613656, guid: 8aa9e46438e2de245bf4555f6df26112, type: 3}
+  - {fileID: 2032816674997081990, guid: 77ec07a3fc58fbf46ac81c8d65b00829, type: 3}
   enemy: {fileID: 0}
   isAlive: 0
   isBoss: 0
+  listEnemiesLevel: 0
 --- !u!1 &9093596474790486146
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +270,8 @@ MonoBehaviour:
   - {fileID: 8507157613114201829, guid: 752d421bc363eb442a5c66d6ad3a1a69, type: 3}
   - {fileID: 7707750920567828824, guid: a2712aa619f9b9441a0eb0135745b077, type: 3}
   - {fileID: 1123221235827613656, guid: 8aa9e46438e2de245bf4555f6df26112, type: 3}
+  - {fileID: 2032816674997081990, guid: 77ec07a3fc58fbf46ac81c8d65b00829, type: 3}
   enemy: {fileID: 0}
   isAlive: 0
   isBoss: 0
+  listEnemiesLevel: 0
