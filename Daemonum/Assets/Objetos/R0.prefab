@@ -3763,7 +3763,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5896d988f3040e847945c99229f70147, type: 2}
+  - {fileID: 2100000, guid: fbbff905a65237a4fa863a54f227ad1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4490,7 +4490,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94766ec2badb05409191dce1a7ffc3e, type: 2}
+  - {fileID: 2100000, guid: fbbff905a65237a4fa863a54f227ad1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5121,7 +5121,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 87f915324069ce944a2a07de4834698a, type: 2}
     - target: {fileID: 919132149155446097, guid: 0ceda273a3d28c24a9765e2b6ffa8118, type: 3}
       propertyPath: m_Name
-      value: doorFrame
+      value: PuertaPrincipal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ceda273a3d28c24a9765e2b6ffa8118, type: 3}

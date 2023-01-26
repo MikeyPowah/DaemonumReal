@@ -159,7 +159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be0dee68665c28045847d81ac3e4dee7, type: 2}
+  - {fileID: 2100000, guid: 25c77b6d09b170e43b6d5b0c32c75ea0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -547,7 +547,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be0dee68665c28045847d81ac3e4dee7, type: 2}
+  - {fileID: 2100000, guid: 25c77b6d09b170e43b6d5b0c32c75ea0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1576,7 +1576,7 @@ PrefabInstance:
     - target: {fileID: 3225571734152101727, guid: 16c685f5354ea644d95f4bcf306a825e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b58c8db024aaa24ca146cea2888a857, type: 2}
+      objectReference: {fileID: 2100000, guid: 25c77b6d09b170e43b6d5b0c32c75ea0, type: 2}
     - target: {fileID: 3530421783839337988, guid: 16c685f5354ea644d95f4bcf306a825e, type: 3}
       propertyPath: m_Name
       value: SUELO

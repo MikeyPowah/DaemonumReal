@@ -35,8 +35,11 @@ public class StatsPlayer : MonoBehaviour
     void Start()
     {
         StatsManager.instance.getPlayer();
-        currentLife = maxLife;
+        if(GameObject.Find("PuertaPrincipal") != null){
+            currentLife = maxLife;
+        }
         currentMana = maxMana;
+        
         UpdateMaxHealth(0);
         UpdateMaxMana(0);
         UpdateHealth(0);
@@ -45,6 +48,7 @@ public class StatsPlayer : MonoBehaviour
         {
             Mana[i].enabled = false;
         }
+        
         for(int i = maxLife; i < Vida.Length; i++)
         {
             Vida[i].enabled = false;
@@ -106,14 +110,15 @@ public class StatsPlayer : MonoBehaviour
         passStats();
     }
     public void passStats(){
-        StatsManager.instance.setStats(maxLife, maxMana, attack, esence, elementalDamage);
+        StatsManager.instance.setStats(maxLife, currentLife, maxMana, attack, esence, elementalDamage);
     }
     public void passStatsWithCoins(){
-        StatsManager.instance.setStatsWithCoins(maxLife, maxMana, attack, coin, esence, elementalDamage);
+        StatsManager.instance.setStatsWithCoins(maxLife, currentLife, maxMana, attack, coin, esence, elementalDamage);
     }
 
-    public void setStats(int maxL, int maxM, int a, int c, int e, float elem){
+    public void setStats(int maxL, int life, int maxM, int a, int c, int e, float elem){
         maxLife = maxL;
+        currentLife = life;
         maxMana = maxM;
         attack = a;
         elementalDamage = elem;

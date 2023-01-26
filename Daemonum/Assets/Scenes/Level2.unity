@@ -360,7 +360,7 @@ MonoBehaviour:
   offset: {x: 75, y: 75}
   suelos: []
   maxRoomPath: 5
-  startRoom: {fileID: 5677473575074310198, guid: 7fcd89faab8f9a94c92b3690a3db18c1, type: 3}
+  startRoom: {fileID: 5677473575074310198, guid: 6f87efe7dfa1514499a79fdf4260dc39, type: 3}
   normalRoom:
   - {fileID: 7453434720511434945, guid: 9e3238b9682021b4480110656d5b8007, type: 3}
   - {fileID: 2012349986165435299, guid: 0375edd93fea13047912b14a158317ac, type: 3}
@@ -374,7 +374,7 @@ MonoBehaviour:
   - {fileID: 8986466295635913115, guid: 2d9a661940c6ae643a490a5156ee27db, type: 3}
   - {fileID: 5194536767629595892, guid: 645b796ef5f47e94383cafa620fa4914, type: 3}
   - {fileID: 7826063083901189246, guid: 941a7c38174283c4b854f7505cebbec7, type: 3}
-  bossRoom: {fileID: 3126697576363522482, guid: 3d9834cf8ca9f1147b91fe5a41f19663, type: 3}
+  bossRoom: {fileID: 3126697576363522482, guid: 4833073a8cb35a44da9f9f9772660762, type: 3}
 --- !u!114 &1169128737
 MonoBehaviour:
   m_ObjectHideFlags: 0

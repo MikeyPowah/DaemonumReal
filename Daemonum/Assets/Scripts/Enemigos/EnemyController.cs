@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -174,9 +175,12 @@ public class EnemyController : MonoBehaviour
             else
             {
                 if(isBoss){
-                    
-                    doorNextLevel.GetComponent<PuertaNextLevel>().appear();
-                    
+                    if(doorNextLevel != null){
+                        doorNextLevel.GetComponent<PuertaNextLevel>().appear();
+                    }else{
+                        GameObject.Find("Player").GetComponent<StatsPlayer>().passStatsWithCoins();
+                        SceneManager.LoadScene("Game");
+                    }
                 }else{
                     this.transform.parent.parent.GetComponent<EnemyGenerator>().isDead();
                 }

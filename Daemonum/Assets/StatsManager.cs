@@ -9,7 +9,7 @@ public class StatsManager : MonoBehaviour
     public static StatsManager instance;
     public GameObject player;
 
-    public int maxLife = 5, maxMana = 5, attack = 10, coin = 25, esence = 125;
+    public int maxLife = 5, currentLife = 5, maxMana = 5, attack = 10, coin = 25, esence = 125;
     public float elementalDamage = 10;
     private void Awake()
     {
@@ -23,15 +23,16 @@ public class StatsManager : MonoBehaviour
         getPlayer();
         
     }
-    public void setStats(int maxL, int maxM, int a, int e, float elem){
+    public void setStats(int maxL, int currentLife, int maxM, int a, int e, float elem){
         maxLife = maxL;
         maxMana = maxM;
         attack = a;
         elementalDamage = elem;
         esence = e;
     }
-    public void setStatsWithCoins(int maxL, int maxM, int a, int c, int e, float elem){
+    public void setStatsWithCoins(int maxL, int life, int maxM, int a, int c, int e, float elem){
         maxLife = maxL;
+        currentLife = life;
         maxMana = maxM;
         attack = a;
         elementalDamage = elem;
@@ -42,7 +43,7 @@ public class StatsManager : MonoBehaviour
         player = GameObject.Find("Player");
         if(player != null){
 
-            player.GetComponent<StatsPlayer>().setStats(maxLife, maxMana, attack, coin, esence, elementalDamage);
+            player.GetComponent<StatsPlayer>().setStats(maxLife, currentLife, maxMana, attack, coin, esence, elementalDamage);
 
         }
     }

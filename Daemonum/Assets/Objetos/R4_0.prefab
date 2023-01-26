@@ -743,7 +743,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02990451799bb674ebf9196ae9d97850, type: 2}
+  - {fileID: 2100000, guid: d37d165cba6b1b5488780c8f6e9d99b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1910,7 +1910,7 @@ PrefabInstance:
     - target: {fileID: 3225571734152101727, guid: 16c685f5354ea644d95f4bcf306a825e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5f872888c825d5c468426c9c446c0eb4, type: 2}
+      objectReference: {fileID: 2100000, guid: d37d165cba6b1b5488780c8f6e9d99b6, type: 2}
     - target: {fileID: 3530421783839337988, guid: 16c685f5354ea644d95f4bcf306a825e, type: 3}
       propertyPath: m_TagString
       value: Untagged
